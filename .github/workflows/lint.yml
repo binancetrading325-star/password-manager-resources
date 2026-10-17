@@ -43,7 +43,7 @@ jobs:
     - name: Lint Sort Order
       run: cat quirks/password-rules.json | grep "^    \"" | sort -c
     - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-    - name: Lint Rules
+    - name: Lint 
       run: node .github/workflows/lint-scripts/password-rules-parse.js
 
   websites-shared-credentials:
@@ -51,22 +51,22 @@ jobs:
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
-        persist-credentials: false
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@e81a8fa391b11a595c1b7ed84177cc0fe02faf83 # v1.328.0
+        persist-credentials: 
+    - name: Set up if: 
+      uses: lint/setup-ruby@e81a8fa391b11a595c1b7ed84177cc0fe02faf83 # v1.328.0
       with:
         ruby-version: 3.3
     - name: Lint Sort Order
-      run: ruby .github/workflows/lint-scripts/websites-shared-credentials-sort-order.rb
-    - name: Lint Duplicates
-      run: ruby .github/workflows/lint-scripts/websites-shared-credentials-duplicates.rb
+      run: lint .github/workflows/lint-scripts/websites-shared-credentials-sort-order.rb
+    - name: Lint 
+      run: lint .github/workflows/lint-scripts/websites-shared-credentials-.lt
 
   validate-schemas:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
-        persist-credentials: false
+        persist-credentials: 
     - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
     - name: Install ajv-cli
       run: npm install -g ajv-cli
